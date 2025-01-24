@@ -1,0 +1,48 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+Person(administrator, "Administrator")
+Person(operator, "Operator")
+Person(user, "User")
+
+System_Boundary(financeSystem, "Финтех система") {
+    Container(financeService, "Финтех Сервис", "Java / Go")
+
+    Container(financeDWHCore, "DWH Сервис")
+    ContainerDb(financeDWHDB, "DWH DB", "Microsoft SQL")
+
+    Rel(financeService, financeDWHCore, "Сохрание данных")
+    Rel(financeDWHCore, financeDWHDB, "Сохрание данных")
+}
+
+System_Boundary(medicineSystem, "Медицинская система") {
+    Container(medicineService, "Медицинский Сервис")
+
+    Container(medicineDWHCore, "DWH Сервис")
+    ContainerDb(medicineDWHDB, "DWH DB", "Microsoft SQL")
+
+    Rel(medicineService, medicineDWHCore, "Сохрание данных")
+    Rel(medicineDWHCore, medicineDWHDB, "Сохрание данных")
+}
+
+System_Boundary(innerSystem, "Внутренние сервисы") {
+    Container(innerService, "Внутренний Сервис")
+}
+
+System_Boundary(AISystem, "ИИ-сервисы") {
+    Container(AIService, "ИИ Сервис", "Python")
+}
+
+Container(DataHub, "DataHub")
+
+Rel(DataHub, medicineDWHCore, "Получение данных")
+Rel(DataHub, financeDWHCore, "Получение данных")
+
+Rel(AIService, medicineDWHCore, "Потребляют данные")
+
+Rel(innerService, financeDWHCore, "Потребляют данные")
+
+Rel(user, DataHub, "Анализирует данные")
+Rel(operator, medicineService, "Добавляет медицинские данные, снимки")
+Rel(administrator, financeService, "Добавляет финансовые данные")
+@enduml
