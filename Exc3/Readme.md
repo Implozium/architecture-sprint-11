@@ -10,11 +10,11 @@ Apache Camel             | Инструменты                         | hold
 Python                   | Языки программирования и фреймворки | adopt
 Golang                   | Языки программирования и фреймворки | adopt
 Java                     | Языки программирования и фреймворки | adopt
-Data Mesh                | Методы                              | asset
-Apache Kafka             | Инструменты                         | asset
-Postgres                 | Инструменты                         | asset
-DataLens                 | Инструменты                         | asset
-DataHub                  | Инструменты                         | asset
+Data Mesh                | Методы                              | trial
+Apache Kafka             | Инструменты                         | trial
+Postgres                 | Инструменты                         | trial
+DataLens                 | Инструменты                         | trial
+DataHub                  | Инструменты                         | trial
 
 # Технический роадмап
 

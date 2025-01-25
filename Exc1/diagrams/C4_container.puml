@@ -9,7 +9,7 @@ System_Boundary(financeSystem, "Финтех система") {
     Container(financeService, "Финтех Сервис", "Java / Go")
 
     Container(financeDWHCore, "DWH Сервис")
-    ContainerDb(financeDWHDB, "DWH DB", "Microsoft SQL")
+    ContainerDb(financeDWHDB, "DWH DB", "Postgres SQL")
 
     Rel(financeService, financeDWHCore, "Сохрание данных")
     Rel(financeDWHCore, financeDWHDB, "Сохрание данных")
@@ -19,7 +19,7 @@ System_Boundary(medicineSystem, "Медицинская система") {
     Container(medicineService, "Медицинский Сервис")
 
     Container(medicineDWHCore, "DWH Сервис")
-    ContainerDb(medicineDWHDB, "DWH DB", "Microsoft SQL")
+    ContainerDb(medicineDWHDB, "DWH DB", "Postgres SQL")
 
     Rel(medicineService, medicineDWHCore, "Сохрание данных")
     Rel(medicineDWHCore, medicineDWHDB, "Сохрание данных")
